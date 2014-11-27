@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "21.0.0"
+
+    defaultConfig {
+        applicationId "com.awareframework.weka"
+        minSdkVersion 17
+        targetSdkVersion 17
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    androidTestCompile 'junit:junit:3.8.2'
+    provided 'com.google.android:android:1.5_r4'
+    //    compile 'com.google.android:android:4.1.1.4'
+    compile 'net.sf.squirrel-sql.thirdparty-non-maven:java-cup:0.11a'
+    compile 'org.pentaho.pentaho-commons:pentaho-package-manager:1.0.8'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
